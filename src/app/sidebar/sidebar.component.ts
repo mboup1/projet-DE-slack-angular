@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Channel } from '../interfaces/channel';
+import { ChannelService } from '../channels/service/channel.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+  channels: Channel[] = [];
+
+  constructor(
+    private channelService: ChannelService,
+  ) { }
+
+  ngOnInit(): void {
+    this.channelService.fetchData().subscribe(() => {
+      this.channels = this.channelService.getChannels();
+      console.log("this.channels : ", this.channels)
+    });
+  }
 
 }

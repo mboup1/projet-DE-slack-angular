@@ -6,18 +6,17 @@ import { AppComponent } from './app.component';
 import { ListChannelsComponent } from './channels/list-channels/list-channels.component';
 import { AddChannelComponent } from './channels/add-channel/add-channel.component';
 import { EditChannelComponent } from './channels/edit-channel/edit-channel.component';
-import { ChannelServicesComponent } from './channels/channel-services/channel-services.component';
 import { ListPostsComponent } from './posts/list-posts/list-posts.component';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
-import { PostServicesComponent } from './posts/post-services/post-services.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { ListUsersComponent } from './users/list-users/list-users.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
-import { UserServicesComponent } from './users/user-services/user-services.component';
 import { ErrorComponent } from './errors/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,22 +24,23 @@ import { ErrorComponent } from './errors/error/error.component';
     ListChannelsComponent,
     AddChannelComponent,
     EditChannelComponent,
-    ChannelServicesComponent,
     ListPostsComponent,
     AddPostComponent,
     EditPostComponent,
-    PostServicesComponent,
     SidebarComponent,
     HeaderComponent,
     ListUsersComponent,
     EditUserComponent,
     AddUserComponent,
-    UserServicesComponent,
     ErrorComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

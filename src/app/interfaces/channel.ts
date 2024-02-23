@@ -4,7 +4,7 @@ import { User } from "./user";
 export interface Channel {
   id: number;
   name: string;
-  isDeletable: boolean;
+  deletable: boolean;
   idUser?: number;
   posts?: Post[];
   user?: User[];
