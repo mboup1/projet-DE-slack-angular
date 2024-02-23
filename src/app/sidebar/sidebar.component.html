@@ -1,7 +1,5 @@
-<p>sidebar works!</p>
-
-<div id="sideChannel" class="nav flex-column nav-pills border p-2 rounded-1">
-  <div  [routerLink]="['/channels']">
-    <a class="nav-link" data-bs-toggle="pill" >Canal 1</a>
+<div class="nav flex-column nav-pills border p-2 rounded-1">
+  <div *ngFor="let channel of channels; let i = index" [routerLink]="['/channels', channel.id]">
+    <a class="nav-link" data-bs-toggle="pill" [ngClass]="{'active': i === 0}">{{ channel.name }}</a>
   </div>
 </div>
