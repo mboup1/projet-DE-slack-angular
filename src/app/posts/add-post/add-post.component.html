@@ -1,1 +1,23 @@
-<p>add-post works!</p>
+<div class="">
+  <div class="col-12 col-md-10 col-lg-8 mx-auto">
+    <div class="bg-white shadow rounded p-4">
+      <form [formGroup]="postForm" (ngSubmit)="createPost(postForm.value)">
+
+        <div class="form-group mb-3">
+          <label for="postMessageInput" class="mb-2">Publier dans <strong>{{ channelName }}</strong></label>
+          <textarea id="postMessageInput" class="form-control" formControlName="message"></textarea>
+        </div>
+
+        <div class="form-group mb-3">
+          <input hidden type="number" id="postIdInput" class="form-control" formControlName="idChannel">
+        </div>
+
+        <div class="d-flex">
+          <button class="btn btn-success" type="submit" [disabled]="postForm.invalid">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

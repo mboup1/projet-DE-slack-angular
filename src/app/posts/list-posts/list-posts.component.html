@@ -16,6 +16,8 @@
         <div class="mb-2">
           <p class="post-message fw-light">
             <span *ngFor="let currentUser  of user" class="post-date text-muted">
+              <span><i class="fas fa-user m-2 fs-3"></i></span>
+
               <span class="fw-bold">{{ currentUser.name }}</span> posté le {{ post.postDateTime | date: 'dd MM yyyy à HH:mm'
               }}
             </span>

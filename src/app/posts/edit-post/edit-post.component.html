@@ -1,1 +1,25 @@
-<p>edit-post works!</p>
+<div class="col-12 col-md-10 col-lg-8 mx-auto">
+  <div class="bg-white shadow rounded p-4">
+    <form [formGroup]="postForm" (ngSubmit)="updatePost(postForm.value.id, postForm.value, postForm.value.idChannel)">
+      <input type="number" formControlName="id" hidden />
+
+      <div class="form-group mb-3">
+        <label for="postMessageInput">Modifier la publication </label>
+        <textarea id="postMessageInput" class="form-control" formControlName="message"></textarea>
+        <div class="text-danger" *ngIf="postForm.get('message')?.invalid && postForm.get('message')?.touched ">
+          Le message est requis.
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <input hidden type="number" id="postIdInput" class="form-control" formControlName="idChannel">
+      </div>
+
+      <div class="d-flex">
+        <button class="btn btn-success" type="submit" [disabled]="postForm.invalid">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
