@@ -13,6 +13,11 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { PostServicesComponent } from './posts/post-services/post-services.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
+import { ListUsersComponent } from './users/list-users/list-users.component';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { AddUserComponent } from './users/add-user/add-user.component';
+import { UserServicesComponent } from './users/user-services/user-services.component';
+import { ErrorComponent } from './errors/error/error.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import { HeaderComponent } from './header/header.component';
     PostServicesComponent,
     SidebarComponent,
     HeaderComponent,
+    ListUsersComponent,
+    EditUserComponent,
+    AddUserComponent,
+    UserServicesComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
