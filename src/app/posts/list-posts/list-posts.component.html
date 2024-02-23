@@ -1,1 +1,41 @@
-<p>list-posts works!</p>
+<div *ngIf="channel" class="message-container">
+  <div class=" mb-3">
+    <div class="card-header rounded-2 custom-bg-light">
+      <span class="fw-bold fs-2">{{ channel.name }}</span>
+      <button *ngIf="channel.deletable" class="btn btn-danger btn-sm float-end"
+        (click)="onDeleteChannel(channel.id, channel.name)">
+        Supprimer
+      </button>
+      <button *ngIf="channel.deletable" class="btn btn-primary btn-sm float-end me-2" [routerLink]="['/updateChannel']"
+        [queryParams]="{ id: channel.id, name: channel.name}">
+        Renommer
+      </button>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let post of channel.posts" class="post">
+        <div class="mb-2">
+          <p class="post-message fw-light">
+            <span *ngFor="let currentUser  of user" class="post-date text-muted">
+              <span class="fw-bold">{{ currentUser.name }}</span> posté le {{ post.postDateTime | date: 'dd MM yyyy à HH:mm'
+              }}
+            </span>
+          </p>
+          {{ post.message }}
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-warning btn-sm me-2" [routerLink]="['/editPost']"
+            [queryParams]="{ id: post.id, message: post.message,idChannel: channel.id}">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="onDeletePost(post.id, post.message)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+        <hr class="my-1">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer  fixed-bottom p-5 ">
+    <app-add-post></app-add-post>
+  </div>
+</div>

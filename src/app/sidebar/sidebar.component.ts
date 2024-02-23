@@ -17,7 +17,10 @@ export class SidebarComponent {
   ngOnInit(): void {
     this.channelService.fetchData().subscribe(() => {
       this.channels = this.channelService.getChannels();
-      console.log("this.channels : ", this.channels)
+      
+      this.channels.sort((a, b) => (b.id < a.id) ? 1 : -1);
+
+      // console.log("this.channels : ", this.channels)
     });
   }
 

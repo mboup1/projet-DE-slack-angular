@@ -11,8 +11,10 @@
         <li class="nav-item border p-1 m-1">
           <a class="nav-link active  " aria-current="page" [routerLink]="['/addChannel']">Ajouter un canal </a>
         </li>
-        <li  class="nav-item  me-2 p-1 m-1">
-          <a class="nav-link active  " aria-current="page" [routerLink]="['/channels/1']">Bonjour User </a>
+        <li *ngFor="let currentUser  of user" class="nav-item  me-2 p-1 m-1">
+          <a class="nav-link active  " aria-current="page" [routerLink]="['/channels/1']">Bonjour <strong>{{
+              currentUser.name
+              }}</strong> </a>
         </li>
       </ul>
     </div>
