@@ -1,10 +1,15 @@
 <!-- app.component.html -->
-<div id="app-container" class="position-relative container">
-  <app-header class="fs-4"></app-header>
-  <div class="d-flex flex-grow-1 position-relative mt-2" id="sideChannel">
-    <app-sidebar class="me-4 sidebard"></app-sidebar>
-    <div id="page-content-wrapper" style="flex-grow: 1;">
+<div id="app-container" class="position-relative">
+  <app-header class="fs-4 w-100"></app-header>
+  <div class="d-flex flex-grow-1 position-relative">
+    <app-sidebar class="me-4" id="bgSidebar"></app-sidebar>
+    <div id="page-content-wrapper" class="container mt-2" style="flex-grow: 1;">
       <router-outlet></router-outlet>
     </div>
   </div>
+  <footer id="bgFooter" class=" text-white p-3 fixed-bottom w-100">
+    <div class="text-center">
+      <p>&copy; 2024 Slack DE</p>
+    </div>
+  </footer>
 </div>

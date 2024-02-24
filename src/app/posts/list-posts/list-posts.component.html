@@ -6,7 +6,7 @@
         (click)="onDeleteChannel(channel.id, channel.name)">
         Supprimer
       </button>
-      <button *ngIf="channel.deletable" class="btn btn-primary btn-sm float-end me-2" [routerLink]="['/updateChannel']"
+      <button *ngIf="channel.deletable" class="btn btn-secondary btn-sm float-end me-2" [routerLink]="['/updateChannel']"
         [queryParams]="{ id: channel.id, name: channel.name}">
         Renommer
       </button>
@@ -25,11 +25,11 @@
           {{ post.message }}
         </div>
         <div class="d-flex justify-content-end">
-          <button class="btn btn-warning btn-sm me-2" [routerLink]="['/editPost']"
+          <button class="btn btn-secondary btn-sm me-2 rounded-pill" [routerLink]="['/editPost']"
             [queryParams]="{ id: post.id, message: post.message,idChannel: channel.id}">
             <i class="fas fa-edit"></i>
           </button>
-          <button class="btn btn-danger btn-sm" (click)="onDeletePost(post.id, post.message)">
+          <button class="btn btn-danger btn-sm rounded-pill" (click)="onDeletePost(post.id, post.message)">
             <i class="fas fa-trash"></i>
           </button>
         </div>
@@ -37,7 +37,8 @@
       </div>
     </div>
   </div>
-  <div class="card-footer  fixed-bottom p-5 ">
+  <!-- <div class="card-footer  fixed-bottom p-5 "> -->
+  <div class="card-footer p-5 ">
     <app-add-post></app-add-post>
   </div>
 </div>

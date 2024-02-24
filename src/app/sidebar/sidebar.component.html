@@ -1,5 +1,6 @@
-<div class="nav flex-column nav-pills border p-2 rounded-1">
+<div class="nav flex-column nav-pills  p-2 rounded-1"   id="sidebarCss" >
   <div *ngFor="let channel of channels; let i = index" [routerLink]="['/channels', channel.id]">
     <a class="nav-link" data-bs-toggle="pill" [ngClass]="{'active': i === 0}">{{ channel.name }}</a>
+    <hr>
   </div>
 </div>
