@@ -1,9 +1,9 @@
 <!-- app.component.html -->
 <div id="app-container" class="position-relative">
   <app-header class="fs-4 w-100"></app-header>
-  <div class="d-flex flex-grow-1 position-relative">
+  <div class="d-flex flex-grow-1 position-relative" id="sidebar_outlet">
     <app-sidebar class="me-4" id="bgSidebar"></app-sidebar>
-    <div id="page-content-wrapper" class="container mt-2" style="flex-grow: 1;">
+    <div id="page-content-wrapper" class="container mt-2">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -16,6 +16,7 @@ export class AddPostComponent {
   posts: Post[] = [];
   idChannel!: number;
   channelName: string = '';
+  idUser!: number;
 
 
 
@@ -32,6 +33,8 @@ export class AddPostComponent {
     this.route.params.subscribe(params => {
       this.idChannel = +params['id'];
       this.postForm.get('idChannel')?.setValue(this.idChannel);
+      this.idUser = 1;
+      this.postForm.get('idUser')?.setValue(this.idUser);
 
       // console.log("idChannel", this.idChannel);
 
@@ -46,6 +49,7 @@ export class AddPostComponent {
 
       message: ['', Validators.required],
       idChannel: ['', Validators.required],
+      idUser: ['', Validators.required],
     });
   }
 

@@ -5,3 +5,8 @@
 #bgSidebar{
   background-color: rgb(227, 227, 236);
 }
+
+
+#sidebar_outlet{
+  height: 2000px;
+}

@@ -25,12 +25,7 @@ export class SidebarComponent {
       // console.log("this.channels : ", this.channels)
     });
   }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event): void {
-    this.isMobile = window.innerWidth < 992;
-  }
-
+  
 
 
 }

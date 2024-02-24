@@ -36,7 +36,7 @@ export class ListPostsComponent {
 
       this.channelService.fetchDataChannelById(channelId).then(() => {
         this.channel = this.channelService.getChannel();
-        // console.log("channel : ", this.channel)
+        console.log("channel : ", this.channel)
 
       });
     });

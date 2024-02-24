@@ -7,5 +7,24 @@
 }
 
 
-#bgHeader{
+#canaux{
+  margin-top: 15px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  cursor: pointer;
+
+}
+
+
+.plus-sign {
+  font-size: 1.2em;
+}
+
+
+strong i {
+  transition: transform 0.3s ease-in-out;
+}
+
+strong:hover i {
+  transform: scale(1.2);
 }

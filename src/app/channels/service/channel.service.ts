@@ -28,7 +28,7 @@ export class ChannelService {
           deletable: channel.deletable,
           idUser: channel.idUser,
           posts: channel.posts,
-          user: channel.user,
+          user: channel.posts.user,
         }));
       }),
       catchError((error) => {

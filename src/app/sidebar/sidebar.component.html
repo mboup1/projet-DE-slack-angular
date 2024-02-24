@@ -1,6 +1,22 @@
-<div class="nav flex-column nav-pills  p-2 rounded-1"   id="sidebarCss" >
-  <div *ngFor="let channel of channels; let i = index" [routerLink]="['/channels', channel.id]">
-    <a class="nav-link" data-bs-toggle="pill" [ngClass]="{'active': i === 0}">{{ channel.name }}</a>
-    <hr>
+<div>
+  <div id="canaux" class="mb-2  fs-4">
+    <a >
+      <strong>
+        Canaux
+        <i class="fas fa-plus bg-secondary rounded-pill p-1" [routerLink]="['/addChannel']"></i>
+      </strong>
+
+    </a>
+  </div>
+
+  <div class="nav flex-column nav-pills  p-2 rounded-1" id="sidebarCss">
+    <div *ngFor="let channel of channels; let i = index" [routerLink]="['/channels', channel.id]">
+      <a class="nav-link" data-bs-toggle="pill" [ngClass]="{'active': i === 0}">{{ channel.name }}</a>
+      <hr>
+    </div>
   </div>
 </div>
+
+<!-- <div class="nav-item text-white">
+      <a class="nav-link active text-white p-1" aria-current="page" [routerLink]="['/addChannel']">Ajouter un canal</a>
+    </div> -->

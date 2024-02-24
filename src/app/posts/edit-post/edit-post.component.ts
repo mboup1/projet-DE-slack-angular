@@ -11,6 +11,8 @@ import axios from 'axios';
 })
 export class EditPostComponent {
   postForm!: FormGroup;
+  idUser!: number;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +27,7 @@ export class EditPostComponent {
       this.postForm.patchValue({
         id: params['id'],
         idChannel: params['idChannel'],
+        idUser: params['idUser'] || 1,
         message: params['message'],
 
 
@@ -41,6 +44,7 @@ export class EditPostComponent {
       message: ['', Validators.required],
       datePoste: [''],
       idChannel: ['', Validators.required],
+      idUser: ['', Validators.required],
 
     });
   }
@@ -48,8 +52,7 @@ export class EditPostComponent {
 
 
   updatePost(id: number, updatedPost: any, idChannel: number): void {
-    console.log("id :", id);
-    console.log("idChannel :", idChannel);
+    console.log("idUser :", this.idUser);
     console.log("updatedPost :", updatedPost);
 
     axios.put(`${API_BASE_URL}/post/${id}`, updatedPost)
