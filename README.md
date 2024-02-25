@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Homepage
 
-![Homepage](src/app/ressources/homepage-image.png)
+![Homepage](src/app/ressources/accueil-slack-de.jpg) 
 
 ## Development server
 1. **Install Dependencies:**
