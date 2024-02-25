@@ -8,7 +8,7 @@ import { UserService } from '../users/service/user.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  user: User[] = [];
+  user!: User;
 
   constructor(
     private userService: UserService,
@@ -20,7 +20,7 @@ export class HeaderComponent {
     this.userService.getUserById(userId)
       .subscribe(
         user => {
-          this.user = [user];
+          this.user = user;
         },
         error => {
           console.error('Error fetching user data:', error);

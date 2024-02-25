@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'editPost', component: EditPostComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'channels/:id', component: ListPostsComponent },
+  { path: '**', redirectTo: 'channels/1' },
+
 
 
 ];
