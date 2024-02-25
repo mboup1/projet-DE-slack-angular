@@ -1,7 +1,9 @@
+import { API_BASE_URL } from './../../config/config';
 import { Injectable } from '@angular/core';
 import { User } from '../../interfaces/user';
 import axios from 'axios';
-import { API_BASE_URL } from '../../config/config';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +12,25 @@ export class UserService {
   user: User[] = [];
 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getUser(id: number): Promise<User> {
-    return axios.get(`${API_BASE_URL}/users/${id}`)
-      .then(response => response.data as User)
-      .catch(error => {
-        console.error('Error fetching user data:', error);
-        throw error;
-      });
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${API_BASE_URL}/users`);
+  }
+
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(`${API_BASE_URL}`, user);
+  }
+
+  deleteUser(id: number): Observable<User> {
+    return this.http.delete<User>(`${API_BASE_URL}/users/${id}`);
+  }
+
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${API_BASE_URL}/users/${id}`);
+  }
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${API_BASE_URL}/users/${user.id}`, user);
   }
 }
