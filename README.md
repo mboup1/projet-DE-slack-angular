@@ -2,9 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
-## Development server
+## Homepage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![Homepage](src/app/ressources/homepage-image.png)
+
+## Development server
+1. **Install Dependencies:**
+   - Run `npm install` to install the project dependencies.
+
+2. **Run `ng serve`:**
+   - Execute `ng serve --open` to start a dev server and open the application in your default browser. The app will reload if you make any changes to the source files.
+
+
+
 
 ## Code scaffolding
 

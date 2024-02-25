@@ -88,7 +88,7 @@ export class ListPostsComponent {
           location.reload();
         })
         .catch(error => {
-          console.error("Erreur lors de la suppression de la client:", error);
+          console.error("Erreur lors de la suppression de post:", error);
         });
   }
 
