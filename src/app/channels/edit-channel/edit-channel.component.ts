@@ -45,6 +45,7 @@ export class EditChannelComponent {
     axios.put(`${API_BASE_URL}/channels/${id}`, updatedChannel)
       .then(response => {
         console.log("Canal mis à jour avec succès:", response);
+        
         this.router.navigate([`/channels/${id}`]);
       })
       .catch(error => {

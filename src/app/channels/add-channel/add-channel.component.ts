@@ -29,14 +29,14 @@ export class AddChannelComponent {
   }
 
   createChannel(channel: any) {
-    // console.log(channel)
+    console.log(channel)
     axios.post(`${API_BASE_URL}/channels`, channel)
       .then(response => {
         console.log("canal créé avec succès:", response);
-        // this.router.navigate(['/channels/1']);
-        location.reload();
-
-
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+        this.router.navigate(['/channels/1']);
       })
       .catch(error => {
         console.error("La création a échoué:", error);
