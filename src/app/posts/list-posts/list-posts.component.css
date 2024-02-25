@@ -1,7 +1,15 @@
 .message-container {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+    /* background-color: yellow; */
+
 }
 
 .custom-bg-light {
   background-color: #f0f0f0;
+}
+
+
+#addPost {
+  /* background-color: green; */
+  margin-bottom: 80px;
 }

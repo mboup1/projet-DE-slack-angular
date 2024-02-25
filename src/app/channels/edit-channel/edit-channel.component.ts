@@ -40,7 +40,7 @@ export class EditChannelComponent {
 
 
   updateChannel(id: number, updatedChannel: any): void {
-    console.log("updatedChannel : ", updatedChannel)
+    // console.log("updatedChannel : ", updatedChannel)
 
     axios.put(`${API_BASE_URL}/channels/${id}`, updatedChannel)
       .then(response => {

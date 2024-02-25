@@ -32,8 +32,6 @@ export class EditPostComponent {
 
 
       });
-      console.log("this.postForm", this.postForm.value);
-
     });
   }
 
@@ -52,8 +50,7 @@ export class EditPostComponent {
 
 
   updatePost(id: number, updatedPost: any, idChannel: number): void {
-    console.log("idUser :", this.idUser);
-    console.log("updatedPost :", updatedPost);
+    // console.log("updatedPost :", updatedPost);
 
     axios.put(`${API_BASE_URL}/post/${id}`, updatedPost)
       .then(response => {
