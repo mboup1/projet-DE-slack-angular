@@ -40,15 +40,16 @@ export class EditChannelComponent {
 
 
   updateChannel(id: number, updatedChannel: any): void {
+    console.log("updatedChannel : ", updatedChannel)
 
-    axios.put(`${API_BASE_URL}/channels/${id}`, updatedChannel)
-      .then(response => {
-        console.log("Canal mis à jour avec succès:", response);
-        this.router.navigate([`/channels/${id}`]);
-      })
-      .catch(error => {
-        console.error("La mise à jour a échoué:", error);
-      });
+    // axios.put(`${API_BASE_URL}/channels/${id}`, updatedChannel)
+    //   .then(response => {
+    //     console.log("Canal mis à jour avec succès:", response);
+    //     this.router.navigate([`/channels/${id}`]);
+    //   })
+    //   .catch(error => {
+    //     console.error("La mise à jour a échoué:", error);
+    //   });
   }
 
 }

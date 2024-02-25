@@ -24,7 +24,7 @@
           </p>
           {{ post.message }}
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end mb-2">
           <button class="btn btn-secondary btn-sm me-2 rounded-pill" [routerLink]="['/editPost']"
             [queryParams]="{ id: post.id, message: post.message,idChannel: channel.id, idUser: post.idUser}">
             <i class="fas fa-edit"></i>

@@ -17,14 +17,14 @@ export class HeaderComponent {
   ngOnInit(): void {
     const userId = 1;
 
-    this.userService.getUser(userId)
-      .then(user => {
-        this.user = [user];
-      })
-      .catch(error => {
-        console.error('Error fetching user data:', error);
-      });
+    this.userService.getUserById(userId)
+      .subscribe(
+        user => {
+          this.user = [user];
+        },
+        error => {
+          console.error('Error fetching user data:', error);
+        }
+      );
   }
-
-
-}
+  }
