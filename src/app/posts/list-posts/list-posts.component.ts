@@ -36,8 +36,6 @@ export class ListPostsComponent {
 
       this.channelService.fetchDataChannelById(channelId).then(() => {
         this.channel = this.channelService.getChannel();
-        console.log("channel : ", this.channel)
-
       });
     });
     const userId = 1;
@@ -56,7 +54,7 @@ export class ListPostsComponent {
 
 
 
-  
+
 
   onDeleteChannel(id: number, nameChannel: string) {
 
@@ -78,7 +76,6 @@ export class ListPostsComponent {
 
 
   onDeletePost(id: number, message: string) {
-    console.log(id)
     let conf = confirm(`Etes-vous sûr de vouloir supprimer ${message} ?`);
 
     if (conf)

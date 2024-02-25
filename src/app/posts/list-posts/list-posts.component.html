@@ -1,5 +1,5 @@
-<div *ngIf="channel" class="message-container me-5">
-  <div class=" mb-3">
+<div *ngIf="channel" class="message-container">
+  <div class=" mb-5">
     <div class="card-header rounded-2 custom-bg-light">
       <span class="fw-bold fs-2">{{ channel.name }}</span>
       <button *ngIf="channel.deletable" class="btn btn-danger btn-sm float-end"
@@ -38,7 +38,7 @@
     </div>
   </div>
   <!-- <div class="card-footer  fixed-bottom p-5 "> -->
-  <div class="card-footer p-5 ">
+</div>
+  <div class="  container" id="addPost">
     <app-add-post></app-add-post>
   </div>
-</div>

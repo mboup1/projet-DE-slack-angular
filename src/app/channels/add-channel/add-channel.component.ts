@@ -29,7 +29,7 @@ export class AddChannelComponent {
   }
 
   createChannel(channel: any) {
-    console.log(channel)
+    // console.log(channel)
     axios.post(`${API_BASE_URL}/channels`, channel)
       .then(response => {
         console.log("canal créé avec succès:", response);
