@@ -56,7 +56,7 @@ export class ListPostsComponent {
 
 
 
-
+  
 
   onDeleteChannel(id: number, nameChannel: string) {
 
@@ -70,7 +70,7 @@ export class ListPostsComponent {
 
         })
         .catch(error => {
-          console.error("Erreur lors de la suppression de la client:", error);
+          console.error("Erreur lors de la suppression du canal !:", error);
         });
   }
 
@@ -84,7 +84,7 @@ export class ListPostsComponent {
     if (conf)
       axios.delete(`${API_BASE_URL}/post/${id}`)
         .then(() => {
-          console.log("Post supprimé avec succès!");
+          console.log("Post supprimé avec succès !");
           location.reload();
         })
         .catch(error => {
