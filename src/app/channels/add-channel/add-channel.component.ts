@@ -33,7 +33,9 @@ export class AddChannelComponent {
     axios.post(`${API_BASE_URL}/channels`, channel)
       .then(response => {
         console.log("canal créé avec succès:", response);
-        this.router.navigate(['/channels/1']);
+        // this.router.navigate(['/channels/1']);
+        location.reload();
+
 
       })
       .catch(error => {
