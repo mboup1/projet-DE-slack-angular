@@ -34,6 +34,12 @@ export class ListPostsComponent {
 
       this.channelService.fetchDataChannelById(channelId).then(() => {
         this.channel = this.channelService.getChannel();
+
+        console.log("this.channel : ", this.channel)
+
+        this.channel.posts?.sort((a: any, b: any) => {
+          return new Date(a.postDateTime).getTime() - new Date(b.postDateTime).getTime();
+        });
       });
     });
 
