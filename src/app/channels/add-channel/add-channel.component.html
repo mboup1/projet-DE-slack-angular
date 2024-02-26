@@ -3,19 +3,35 @@
     <div class="bg-white shadow rounded p-4">
       <h1 class="display-6 text-dark text-center">Ajouter un canal</h1>
       <hr class="bg-dark mb-5" />
-      <form [formGroup]="channelForm" (ngSubmit)="createChannel(channelForm.value)">
-
+      <form
+        [formGroup]="channelForm"
+        (ngSubmit)="createChannel(channelForm.value)"
+      >
         <div class="form-group mb-3">
           <label for="channelNameInput">Nom du canal</label>
-          <input type="text" id="channelNameInput" class="form-control" formControlName="name" />
-          <div class="text-danger"
-            *ngIf="channelForm.get('name')?.invalid && channelForm.get('name')?.touched ">
+          <input
+            type="text"
+            id="channelNameInput"
+            class="form-control"
+            formControlName="name"
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              channelForm.get('name')?.invalid &&
+              channelForm.get('name')?.touched
+            "
+          >
             Le nom du canal est requis.
           </div>
         </div>
 
         <div class="d-flex">
-          <button class="btn btn-success mx-auto" type="submit" [disabled]="channelForm.invalid">
+          <button
+            class="btn btn-success mx-auto"
+            type="submit"
+            [disabled]="channelForm.invalid"
+          >
             Enregistrer
           </button>
         </div>
