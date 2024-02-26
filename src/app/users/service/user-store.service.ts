@@ -23,12 +23,14 @@ users$: Observable<User[]> = this._users.asObservable();
  deleteCLientById(id: number){
    this.users = this.users.filter(user => user.id !== id );
  }
+ /*
  updateClient(updatedUser: User) {
    const currentUsers = [...this.users];
    const index = currentUsers.findIndex(client => client.id === updatedUser.id);
    currentUsers[index] = updatedUser;
    this.users = (currentUsers);
  }
+ */
 
   constructor() { }
 }
