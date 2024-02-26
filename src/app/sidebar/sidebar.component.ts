@@ -9,8 +9,7 @@ import { ChannelService } from '../channels/service/channel.service';
 })
 export class SidebarComponent {
   channels: Channel[] = [];
-  isMobile: boolean = window.innerWidth < 992;
-
+  
 
   constructor(
     private channelService: ChannelService,
@@ -25,7 +24,7 @@ export class SidebarComponent {
       // console.log("this.channels : ", this.channels)
     });
   }
-  
+
 
 
 }

@@ -28,3 +28,13 @@ strong i {
 strong:hover i {
   transform: scale(1.2);
 }
+
+
+@media(max-width:768px){
+  .test{
+    /* padding: 1rem; */
+    background-color: red;
+    display: none;
+  }
+
+}
