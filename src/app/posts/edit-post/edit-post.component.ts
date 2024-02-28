@@ -13,7 +13,6 @@ export class EditPostComponent {
   postForm!: FormGroup;
   idUser!: number;
 
-
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -35,6 +34,17 @@ export class EditPostComponent {
     });
   }
 
+  updatePost(id: number, updatedPost: any, idChannel: number): void {
+
+    axios.put(`${API_BASE_URL}/post/${id}`, updatedPost)
+      .then(response => {
+        console.log("Post updated successfully:", response);
+        this.router.navigate([`/channels/${idChannel}`]);
+      })
+      .catch(error => {
+        console.error("Update failed:", error);
+      });
+  }
 
   initPostForm(): void {
     this.postForm = this.formBuilder.group({
@@ -49,17 +59,6 @@ export class EditPostComponent {
 
 
 
-  updatePost(id: number, updatedPost: any, idChannel: number): void {
-    // console.log("updatedPost :", updatedPost);
 
-    axios.put(`${API_BASE_URL}/post/${id}`, updatedPost)
-      .then(response => {
-        console.log("Post updated successfully:", response);
-        this.router.navigate([`/channels/${idChannel}`]);
-      })
-      .catch(error => {
-        console.error("Update failed:", error);
-      });
-  }
 
 }

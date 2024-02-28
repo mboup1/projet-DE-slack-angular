@@ -1,15 +1,13 @@
+<!-- list-posts.component.html -->
 <div *ngIf="channel" class="message-container">
   <div class=" mb-5">
     <div class="card-header rounded-2 custom-bg-light">
       <span class="fw-bold fs-2">{{ channel.name }}</span>
       <button *ngIf="channel.deletable" class="btn btn-danger btn-sm float-end"
-        (click)="onDeleteChannel(channel.id, channel.name)">
-        Supprimer
-      </button>
+        (click)="onDeleteChannel(channel.id, channel.name)">Supprimer</button>
+        
       <button *ngIf="channel.deletable" class="btn btn-secondary btn-sm float-end me-2" [routerLink]="['/updateChannel']"
-        [queryParams]="{ id: channel.id, name: channel.name}">
-        Renommer
-      </button>
+        [queryParams]="{ id: channel.id, name: channel.name}"> Renommer</button>
     </div>
     <div class="card-body">
       <div *ngFor="let post of channel.posts" class="post">
@@ -18,8 +16,7 @@
             <span *ngIf="post.user" class="post-date text-muted">
               <span><i class="fas fa-user m-2 fs-3"></i></span>
 
-              <span class="fw-bold">{{ post.user.name }}</span> posté le {{ post.postDateTime | date: 'dd MM yyyy à HH:mm'
-              }}
+              <span class="fw-bold">{{ post.user.name }}</span> posté le {{ post.postDateTime | date: 'dd MM yyyy à HH:mm'}}
             </span>
           </p>
           {{ post.message }}
@@ -37,7 +34,6 @@
       </div>
     </div>
   </div>
-  <!-- <div class="card-footer  fixed-bottom p-5 "> -->
 </div>
   <div class="  container" id="addPost">
     <app-add-post></app-add-post>

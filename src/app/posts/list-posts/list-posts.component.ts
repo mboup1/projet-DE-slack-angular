@@ -15,12 +15,7 @@ export class ListPostsComponent {
   userName: string = '';
   user: User[] = [];
 
-
-
-  channel: Channel = {
-    id: 0, name: '', deletable: false, posts: [],
-    idUser: 0
-  };
+  channel: Channel = {id: 0, name: '', deletable: false, posts: [], idUser: 0};
   constructor(
     private route: ActivatedRoute,
     private channelService: ChannelService,
@@ -45,10 +40,6 @@ export class ListPostsComponent {
 
   }
 
-
-
-
-
   onDeleteChannel(id: number, nameChannel: string) {
 
     let conf = confirm(`Etes-vous sûr de vouloir supprimer ${nameChannel} ?`);
@@ -67,8 +58,6 @@ export class ListPostsComponent {
           console.error("Erreur lors de la suppression du canal !:", error);
         });
   }
-
-
 
 
   onDeletePost(id: number, message: string) {

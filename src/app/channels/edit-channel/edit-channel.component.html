@@ -1,3 +1,4 @@
+<!-- edit-channel.component.html -->
 <div class="row m-5">
   <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
     <div class="bg-white shadow rounded p-4">
@@ -10,8 +11,7 @@
         <div class="form-group mb-3">
           <label for="channelNameInput">Nom du canal</label>
           <input type="text" id="channelNameInput" class="form-control" formControlName="name" />
-          <div class="text-danger"
-            *ngIf="channelForm.get('name')?.invalid && channelForm.get('name')?.touched ">
+          <div class="text-danger" *ngIf="channelForm.get('name')?.invalid && channelForm.get('name')?.touched ">
             Le nom du canal est requis.
           </div>
         </div>

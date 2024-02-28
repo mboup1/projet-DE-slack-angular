@@ -19,7 +19,6 @@ export class AddPostComponent {
   idUser!: number;
 
 
-
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -36,13 +35,26 @@ export class AddPostComponent {
       this.idUser = 1;
       this.postForm.get('idUser')?.setValue(this.idUser);
 
-      // console.log("idChannel", this.idChannel);
-
       this.getChannelName();
-
 
     });
   }
+
+  createPost(post: any) {
+    console.log("createPost : ", post)
+    axios.post(`${API_BASE_URL}/post`, post)
+      .then(response => {
+        console.log("Post created successfully ", response);
+        this.router.navigate(['/channels', this.idChannel]).then(() => {
+          this.initPostForm();
+          location.reload();
+        });
+      })
+      .catch(error => {
+        console.error("Creation failed ", error);
+      });
+  }
+
 
   initPostForm(): void {
     this.postForm = this.formBuilder.group({
@@ -62,22 +74,6 @@ export class AddPostComponent {
       })
       .catch(error => {
         console.error('Error fetching channel data:', error);
-      });
-  }
-
-
-  createPost(post: any) {
-    console.log("createPost : ", post)
-    axios.post(`${API_BASE_URL}/post`, post)
-      .then(response => {
-        console.log("Post created successfully ", response);
-        this.router.navigate(['/channels', this.idChannel]).then(() => {
-          this.initPostForm();
-          location.reload();
-        });
-      })
-      .catch(error => {
-        console.error("Creation failed ", error);
       });
   }
 

@@ -17,9 +17,7 @@ const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'channels/:id', component: ListPostsComponent },
   { path: '**', redirectTo: 'channels/1' },
-
-
-
+  
 ];
 
 @NgModule({

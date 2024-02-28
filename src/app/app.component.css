@@ -5,3 +5,8 @@
 #bgSidebar{
   background-color: rgb(227, 227, 236);
 }
+
+#page-content-wrapper {
+  /* Pour prolonger le sidebar jus'qu'au footer */
+  margin-bottom: 38rem;
+}

@@ -12,10 +12,7 @@ export class ChannelService {
   channels: Channel[] = [];
   channelById: Channel[] = [];
 
-  channel: Channel = {
-    id: 0, name: '', deletable: false, posts: [],
-    idUser: 0
-  };
+  channel: Channel = {id: 0, name: '', deletable: false, posts: [], idUser: 0};
 
   constructor(private http: HttpClient) { }
 

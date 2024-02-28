@@ -9,7 +9,7 @@ import { ChannelService } from '../channels/service/channel.service';
 })
 export class SidebarComponent {
   channels: Channel[] = [];
-  
+
 
   constructor(
     private channelService: ChannelService,
@@ -21,7 +21,7 @@ export class SidebarComponent {
 
       this.channels.sort((a, b) => (b.id < a.id) ? 1 : -1);
 
-      // console.log("this.channels : ", this.channels)
+      console.log("this.channels : ", this.channels)
     });
   }
 

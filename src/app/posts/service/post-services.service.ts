@@ -22,13 +22,10 @@ export class PostServicesService {
         idChannel: post.idChannel,
 
       }));
-      // console.log(this.channels)
     } catch (error) {
       console.error('Error fetching JSON data:', error);
     }
   }
-
-
 
   getPosts(): Post[] {
     return this.posts;
