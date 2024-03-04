@@ -8,16 +8,20 @@ import { HeaderComponent } from './header/header.component';
 import { ListPostsComponent } from './posts/list-posts/list-posts.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './login/login.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { ChannelGuard } from './channel.guard';
 
 const routes: Routes = [
   { path: 'channels', component: SidebarComponent },
-  { path: 'addChannel', component: AddChannelComponent },
+  { path: 'addChannel', component: AddChannelComponent, canActivate: [ChannelGuard] },
   { path: 'updateChannel', component: EditChannelComponent },
   { path: 'addPost', component: AddPostComponent },
   { path: 'editPost', component: EditPostComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'channels/:id', component: ListPostsComponent },
+  //add
   { path: 'login', component: LoginComponent },
+  { path: 'app-forbidden', component: ForbiddenComponent },
   { path: '**', redirectTo: 'channels/1' },
 
 ];

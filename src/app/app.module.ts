@@ -18,6 +18,7 @@ import { ErrorComponent } from './errors/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { LoginComponent } from './login/login.component';
     AddUserComponent,
     ErrorComponent,
     LoginComponent,
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,
