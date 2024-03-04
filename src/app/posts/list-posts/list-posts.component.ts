@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ChannelService } from '../../channels/service/channel.service';
 import axios from 'axios';
 import { API_BASE_URL } from '../../config/config';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-list-posts',
@@ -19,6 +20,8 @@ export class ListPostsComponent {
   constructor(
     private route: ActivatedRoute,
     private channelService: ChannelService,
+    public authService: AuthService,
+
     private router: Router
   ) { }
 
@@ -30,7 +33,7 @@ export class ListPostsComponent {
       this.channelService.fetchDataChannelById(channelId).then(() => {
         this.channel = this.channelService.getChannel();
 
-        console.log("this.channel : ", this.channel)
+        // console.log("this.channel : ", this.channel)
 
         this.channel.posts?.sort((a: any, b: any) => {
           return new Date(a.postDateTime).getTime() - new Date(b.postDateTime).getTime();

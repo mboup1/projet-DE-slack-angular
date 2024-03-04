@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Channel } from '../interfaces/channel';
 import { ChannelService } from '../channels/service/channel.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,15 +14,22 @@ export class SidebarComponent {
 
   constructor(
     private channelService: ChannelService,
+    public authService: AuthService,
+
   ) { }
 
   ngOnInit(): void {
+
+    // console.log(this.authService.loggedUser)
+    // console.log("dame")
+
+
     this.channelService.fetchData().subscribe(() => {
       this.channels = this.channelService.getChannels();
 
       this.channels.sort((a, b) => (b.id < a.id) ? 1 : -1);
 
-      console.log("this.channels : ", this.channels)
+      // console.log("this.channels : ", this.channels)
     });
   }
 

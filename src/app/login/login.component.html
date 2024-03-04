@@ -1,0 +1,42 @@
+<!-- login.component.html -->
+
+<div class="row m-5">
+  <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto">
+    <div class="bg-white shadow rounded p-4">
+      <h1 class="display-6 text-dark text-center">Connexion</h1>
+      <hr class="bg-dark mb-5" />
+      <div class="alert alert-danger" *ngIf="erreur==1">
+        <strong>login ou mot de passe erronés..</strong>
+      </div>
+      <form [formGroup]="userForm">
+        <div class="form-group mb-3">
+          <label>Nom utilisateur</label>
+          <input type="text" class="form-control" formControlName="username" />
+          <!-- <div class="text-danger" *ngIf="
+              userForm.get('username')?.invalid && userForm.get('username')?.touched">
+            Le nom d'utilisateur est requis.
+          </div> -->
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Mot de passe :</label>
+          <input type="password" class="form-control" formControlName="password" />
+          <!-- <div class="text-danger" *ngIf="
+                      userForm.get('password')?.invalid && userForm.get('password')?.touched">
+            Le mot de passe est requis.
+          </div> -->
+        </div>
+
+        <div class="d-flex">
+          <button class="btn btn-success mx-auto" type="button" (click)="onLoggedin()"
+          >
+            Connexion
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+          <!-- [disabled]="userForm.invalid" -->

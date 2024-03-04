@@ -7,6 +7,7 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { HeaderComponent } from './header/header.component';
 import { ListPostsComponent } from './posts/list-posts/list-posts.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'channels', component: SidebarComponent },
@@ -16,8 +17,9 @@ const routes: Routes = [
   { path: 'editPost', component: EditPostComponent },
   { path: 'header', component: HeaderComponent },
   { path: 'channels/:id', component: ListPostsComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: 'channels/1' },
-  
+
 ];
 
 @NgModule({

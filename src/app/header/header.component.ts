@@ -3,6 +3,7 @@ import { User } from '../interfaces/user';
 import { UserService } from '../users/service/user.service';
 import { ChannelService } from '../channels/service/channel.service';
 import { Channel } from '../interfaces/channel';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,7 @@ export class HeaderComponent {
   constructor(
     private userService: UserService,
     private channelService: ChannelService,
+    public authService: AuthService,
 
   ) { }
 
@@ -40,5 +42,9 @@ export class HeaderComponent {
 
       // console.log("this.channels : ", this.channels)
     });
+  }
+
+  onLogout() {
+    
   }
   }

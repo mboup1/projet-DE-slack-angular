@@ -3,10 +3,13 @@
   <div class=" mb-5">
     <div class="card-header rounded-2 custom-bg-light">
       <span class="fw-bold fs-2">{{ channel.name }}</span>
-      <button *ngIf="channel.deletable" class="btn btn-danger btn-sm float-end"
+      <button *ngIf="channel.deletable && authService.isAdmin()" class="btn btn-danger btn-sm float-end"
         (click)="onDeleteChannel(channel.id, channel.name)">Supprimer</button>
-        
-      <button *ngIf="channel.deletable" class="btn btn-secondary btn-sm float-end me-2" [routerLink]="['/updateChannel']"
+
+        <!-- test role admin pour renommer ou supprimerun canal -->
+      <button *ngIf="channel.deletable
+      && authService.isAdmin()
+      "  class="btn btn-secondary btn-sm float-end me-2" [routerLink]="['/updateChannel']"
         [queryParams]="{ id: channel.id, name: channel.name}"> Renommer</button>
     </div>
     <div class="card-body">
