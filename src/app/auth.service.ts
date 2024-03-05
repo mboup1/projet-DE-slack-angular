@@ -9,7 +9,7 @@ export class AuthService {
 
 
   users: User[] = [{ "username": "admin", "password": "123", "roles": ['ADMIN'] },
-  { "username": "nadhem", "password": "123", "roles": ['USER'] },
+  { "username": "nad", "password": "123", "roles": ['USER'] },
   { "username": "dame", "password": "123", "roles": ['ADMIN'] }
   ];
 
@@ -35,6 +35,7 @@ export class AuthService {
         localStorage.setItem('isloggedIn', String(this.isloggedIn));
       }
     });
+    
     return validUser;
   }
 

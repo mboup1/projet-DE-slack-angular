@@ -43,3 +43,8 @@ strong i {
 strong:hover i {
   transform: scale(1.2);
 }
+
+
+.red {
+  color: red;
+}

@@ -45,6 +45,6 @@ export class HeaderComponent {
   }
 
   onLogout() {
-    
+    this.authService.logout();
   }
-  }
+}
