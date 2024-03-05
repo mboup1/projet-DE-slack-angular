@@ -12,11 +12,11 @@ export class ChannelService {
   channels: Channel[] = [];
   channelById: Channel[] = [];
 
-  channel: Channel = {id: 0, name: '', deletable: false, posts: [], idUser: 0};
+  channel: Channel = { id: 0, name: '', deletable: false, posts: [], idUser: 0 };
 
   constructor(private http: HttpClient) { }
 
-  fetchData(): Observable<void> {
+  fetchDataByChannels(): Observable<void> {
     return this.http.get(`${API_BASE_URL}/channels`).pipe(
       map((response: any) => {
         this.channels = response.map((channel: any) => ({

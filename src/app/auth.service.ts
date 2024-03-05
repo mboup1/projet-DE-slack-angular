@@ -1,28 +1,58 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from './interfaces/user.model';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from './users/service/user.service';
+import { User } from './interfaces/user';
+import { Observable, catchError, map } from 'rxjs';
+import { API_BASE_URL } from './config/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  users: User[] = [];
 
-  users: User[] = [{ "username": "admin", "password": "123", "roles": ['ADMIN'] },
-  { "username": "nad", "password": "123", "roles": ['USER'] },
-  { "username": "dame", "password": "123", "roles": ['ADMIN'] }
-  ];
+
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    public userService: UserService,
+  ) { }
+
+
+  fetchDataUsers(): Observable<void> {
+    return this.http.get(`${API_BASE_URL}/users`).pipe(
+      map((response: any) => {
+        this.users = response.map((user: any) => ({
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          password: user.password,
+          // idChannel: user.idChannel,
+          roles: user.roles,
+        }));
+      }),
+      catchError((error) => {
+        console.error('Error fetching JSON data:', error);
+        throw error;
+      })
+    );
+  }
+
+  getUsers(): User[] {
+    return this.users;
+  }
 
   public loggedUser!: string;
   public isloggedIn: Boolean = false;
   public roles!: string[];
 
-  constructor(private router: Router) { }
+
 
   SignIn(user: User): Boolean {
-    console.log("user in signIn  :  ",user);
-
     let validUser: Boolean = false;
+
     this.users.forEach((curUser) => {
       if (user.username == curUser.username && user.password == curUser.password) {
         validUser = true;
@@ -35,12 +65,12 @@ export class AuthService {
         localStorage.setItem('isloggedIn', String(this.isloggedIn));
       }
     });
-    
+
     return validUser;
   }
 
   isAdmin(): Boolean {
-    if (!this.roles) //this.roles== undefiened
+    if (!this.roles)
       return false;
     return (this.roles.indexOf('ADMIN') > -1);
     ;
@@ -61,6 +91,7 @@ export class AuthService {
     this.isloggedIn = true;
     this.getUserRoles(login);
   }
+  
   getUserRoles(username: string) {
     this.users.forEach((curUser) => {
       if (curUser.username == username) {
@@ -68,5 +99,11 @@ export class AuthService {
       }
     });
   }
+
+  // users: User[] = [{ "username": "admin", "password": "123", "roles": ['ADMIN'] },
+  //   { "username": "nad", "password": "123", "roles": ['USER'] },
+  //   { "username": "a", "password": "a", "roles": ['ADMIN'] },
+  // { "username": "dame", "password": "123", "roles": ['ADMIN'] }
+  // ];
 
 }

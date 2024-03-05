@@ -13,6 +13,10 @@ import { AuthService } from '../auth.service';
 export class HeaderComponent {
   user!: User;
   channels: Channel[] = [];
+  users: User[] = [];
+  // users: User[] = [];
+
+
 
 
   constructor(
@@ -33,15 +37,32 @@ export class HeaderComponent {
         error => {
           console.error('Error fetching user data:', error);
         }
-    );
+      );
 
-    this.channelService.fetchData().subscribe(() => {
+    this.channelService.fetchDataByChannels().subscribe(() => {
       this.channels = this.channelService.getChannels();
 
       this.channels.sort((a, b) => (b.id < a.id) ? 1 : -1);
 
       // console.log("this.channels : ", this.channels)
+      // console.log("this.user : ", this.user)
     });
+
+
+    this.authService.fetchDataUsers().subscribe(() => {
+      this.users = this.authService.getUsers();
+
+
+        console.log("users header2 : ", this.users)
+    });
+
+
+
+
+
+    // this.userService.getAllUsers().subscribe((users) => {
+    //   console.log("users header : ", users)
+    // });
   }
 
   onLogout() {

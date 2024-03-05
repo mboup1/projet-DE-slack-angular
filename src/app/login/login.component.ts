@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User } from '../interfaces/user.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -30,6 +29,7 @@ export class LoginComponent {
     // console.log(this.userForm.value);
 
     let isValidUser: Boolean = this.authService.SignIn(this.userForm.value);
+    
     if (isValidUser)
       this.router.navigate(['/']);
     else

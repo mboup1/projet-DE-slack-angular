@@ -1,6 +1,9 @@
 export interface User {
-    id: number;
-    name: string;
-    email: string;
-    idChannel?: number;
+  id?: number;
+  name?: string;
+  username: string;
+  email?: string;
+  password?: string;
+  idChannel?: number;
+  roles: string[];
 }

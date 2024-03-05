@@ -21,6 +21,7 @@ export class ListPostsComponent {
     private route: ActivatedRoute,
     private channelService: ChannelService,
     public authService: AuthService,
+    
 
     private router: Router
   ) { }
