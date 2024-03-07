@@ -2,7 +2,7 @@
 <div *ngIf="channel" class="message-container">
   <div class=" mb-5">
     <div class="card-header rounded-2 custom-bg-light">
-      <span class="fw-bold fs-2">{{ channel.name }}</span>
+      <span class="fw-bold fs-2">{{ channel.name | uppercase}}</span>
       <button *ngIf="channel.deletable && authService.isAdmin()" class="btn btn-danger btn-sm float-end"
         (click)="onDeleteChannel(channel.id, channel.name)">Supprimer</button>
 
@@ -19,19 +19,22 @@
             <span *ngIf="post.user" class="post-date text-muted">
               <span><i class="fas fa-user m-2 fs-3"></i></span>
 
-              <span class="fw-bold">{{ post.user.name }}</span> posté le {{ post.postDateTime | date: 'dd MM yyyy à HH:mm'}}
+              <span class="fw-bold">{{ post.user.username | uppercase }}</span> posté le {{ post.postDateTime | date: 'dd MM yyyy à HH:mm'}}
             </span>
           </p>
           {{ post.message }}
         </div>
         <div class="d-flex justify-content-end mb-2">
-          <button class="btn btn-secondary btn-sm me-2 rounded-pill" [routerLink]="['/editPost']"
-            [queryParams]="{ id: post.id, message: post.message,idChannel: channel.id, idUser: post.idUser}">
-            <i class="fas fa-edit"></i>
-          </button>
-          <button class="btn btn-danger btn-sm rounded-pill" (click)="onDeletePost(post.id, post.message)">
-            <i class="fas fa-trash"></i>
-          </button>
+          <!-- Vérifier si l'utilisateur connecté est l'auteur du post avant d'afficher les boutons -->
+          <ng-container *ngIf="authService.isloggedIn && authService.idCurUser === post.idUser">
+            <button class="btn btn-secondary btn-sm me-2 rounded-pill" [routerLink]="['/editPost']"
+              [queryParams]="{ id: post.id, message: post.message, idChannel: channel.id, idUser: post.idUser}">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn btn-danger btn-sm rounded-pill" (click)="onDeletePost(post.id, post.message)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </ng-container>
         </div>
         <hr class="my-1">
       </div>

@@ -27,17 +27,17 @@ export class HeaderComponent {
   ) { }
 
   ngOnInit(): void {
-    const userId = 1;
+    // const userId = 1;
 
-    this.userService.getUserById(userId)
-      .subscribe(
-        user => {
-          this.user = user;
-        },
-        error => {
-          console.error('Error fetching user data:', error);
-        }
-      );
+    // this.userService.getUserById(userId)
+    //   .subscribe(
+    //     user => {
+    //       this.user = user;
+    //     },
+    //     error => {
+    //       console.error('Error fetching user data:', error);
+    //     }
+    //   );
 
     this.channelService.fetchDataByChannels().subscribe(() => {
       this.channels = this.channelService.getChannels();
@@ -53,7 +53,11 @@ export class HeaderComponent {
       this.users = this.authService.getUsers();
 
 
-        console.log("users header2 : ", this.users)
+      console.log("users header2 : ", this.users)
+
+      // Afficher tous les noms d'utilisateur dans la console
+      // const usernames = this.users.map(user => user.username);
+      // console.log("users header2 usernames: ", usernames);
     });
 
 

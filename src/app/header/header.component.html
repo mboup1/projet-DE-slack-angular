@@ -19,7 +19,7 @@
       <!-- nom user login -->
       <li *ngIf="authService.loggedUser" class="nav-item  me-2 p-1 m-1">
         <a class="nav-link active p-1 text-light me-2" aria-current="page" [routerLink]="['/channels/1']">
-          <strong>{{authService.loggedUser}}</strong> </a>
+          <strong>{{authService.loggedUser | uppercase}}</strong> </a>
       </li>
 
       <!-- Si l'utilisateur est connecté -->

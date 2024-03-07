@@ -46,6 +46,7 @@ export class AuthService {
 
   public loggedUser!: string;
   public isloggedIn: Boolean = false;
+  public idCurUser!: number;
   public roles!: string[];
 
 
@@ -56,12 +57,14 @@ export class AuthService {
     this.users.forEach((curUser) => {
       if (user.username == curUser.username && user.password == curUser.password) {
         validUser = true;
-        this.loggedUser = curUser.username;
-        console.log("loggedUser  :  ", this.loggedUser);
+        this.loggedUser = curUser.name;
+        this.idCurUser = curUser.id;
+        // console.log("idCurUser  :  ", this.idCurUser);
 
         this.isloggedIn = true;
         this.roles = curUser.roles;
         localStorage.setItem('loggedUser', this.loggedUser);
+        localStorage.setItem('idCurUser', `${this.idCurUser}`);
         localStorage.setItem('isloggedIn', String(this.isloggedIn));
       }
     });
@@ -82,16 +85,18 @@ export class AuthService {
     this.loggedUser = undefined!;
     this.roles = undefined!;
     localStorage.removeItem('loggedUser');
+    localStorage.removeItem('idCurUser');
     localStorage.setItem('isloggedIn', String(this.isloggedIn));
     this.router.navigate(['/login']);
   }
 
-  setLoggedUserFromLocalStorage(login: string) {
+  setLoggedUserFromLocalStorage(login: string, idCurUser: number) {
     this.loggedUser = login;
+    this.idCurUser = idCurUser;
     this.isloggedIn = true;
     this.getUserRoles(login);
   }
-  
+
   getUserRoles(username: string) {
     this.users.forEach((curUser) => {
       if (curUser.username == username) {

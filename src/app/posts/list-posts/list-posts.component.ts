@@ -21,7 +21,7 @@ export class ListPostsComponent {
     private route: ActivatedRoute,
     private channelService: ChannelService,
     public authService: AuthService,
-    
+
 
     private router: Router
   ) { }
@@ -34,7 +34,7 @@ export class ListPostsComponent {
       this.channelService.fetchDataChannelById(channelId).then(() => {
         this.channel = this.channelService.getChannel();
 
-        // console.log("this.channel : ", this.channel)
+        console.log("this.channel : ", this.channel)
 
         this.channel.posts?.sort((a: any, b: any) => {
           return new Date(a.postDateTime).getTime() - new Date(b.postDateTime).getTime();

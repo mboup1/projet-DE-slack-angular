@@ -11,7 +11,7 @@
       <form [formGroup]="userForm">
         <div class="form-group mb-3">
           <label>Nom utilisateur</label>
-          <input type="text" class="form-control" formControlName="username" />
+          <input type="text" class="form-control" formControlName="username" (keyup.enter)="onLoggedin()" />
           <!-- <div class="text-danger" *ngIf="
               userForm.get('username')?.invalid && userForm.get('username')?.touched">
             Le nom d'utilisateur est requis.
@@ -20,7 +20,7 @@
 
         <div class="form-group mb-3">
           <label>Mot de passe :</label>
-          <input type="password" class="form-control" formControlName="password" />
+          <input type="password" class="form-control" formControlName="password" (keyup.enter)="onLoggedin()" />
           <!-- <div class="text-danger" *ngIf="
                       userForm.get('password')?.invalid && userForm.get('password')?.touched">
             Le mot de passe est requis.
@@ -28,8 +28,7 @@
         </div>
 
         <div class="d-flex">
-          <button class="btn btn-success mx-auto" type="button" (click)="onLoggedin()"
-          >
+          <button class="btn btn-success mx-auto" type="button" (click)="onLoggedin()">
             Connexion
           </button>
         </div>

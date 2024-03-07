@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { UppercasePipe } from './pipes/uppercase.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     ErrorComponent,
     LoginComponent,
     ForbiddenComponent,
+    UppercasePipe,
   ],
   imports: [
     BrowserModule,

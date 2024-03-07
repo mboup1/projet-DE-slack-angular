@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../../interfaces/post';
 import axios from 'axios';
 import { API_BASE_URL } from '../../config/config';
+import { AuthService } from '../../auth.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-add-post',
@@ -17,13 +19,17 @@ export class AddPostComponent {
   idChannel!: number;
   channelName: string = '';
   idUser!: number;
+  users: User[] = [];
+
 
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private channelsService: ChannelService
+    private channelsService: ChannelService,
+    public authService: AuthService,
+
 
   ) { }
 
@@ -32,13 +38,32 @@ export class AddPostComponent {
     this.route.params.subscribe(params => {
       this.idChannel = +params['id'];
       this.postForm.get('idChannel')?.setValue(this.idChannel);
-      this.idUser = 1;
+      this.idUser = this.authService.idCurUser;
       this.postForm.get('idUser')?.setValue(this.idUser);
 
       this.getChannelName();
 
     });
+
+    this.authService.fetchDataUsers().subscribe(() => {
+      this.users = this.authService.getUsers();
+
+
+      // console.log("users add-post : ", this.users)
+
+      // Afficher tous les noms d'utilisateur dans la console
+      const userIds = this.users.map(user => user.id);
+      console.log("ids users header2 usernames: ", userIds);
+    });
   }
+
+
+
+
+
+
+
+
 
   createPost(post: any) {
     console.log("createPost : ", post)

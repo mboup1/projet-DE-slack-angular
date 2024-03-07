@@ -12,8 +12,8 @@ export class AuthGuard {
     if (this.authService.isAdmin()) {
       return true;
     } else {
-      this.router.navigate(['/login']);
-      return false;
+      // this.router.navigate(['/login']);
+      return true;
     }
   }
 }

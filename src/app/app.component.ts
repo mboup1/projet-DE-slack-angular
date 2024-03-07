@@ -17,14 +17,17 @@ export class AppComponent {
     //Pour rester connecter au chargement de l'application
     let isloggedin: string;
     let loggedUser: string;
+    let idCurUser: number;
 
     isloggedin = localStorage.getItem('isloggedIn')!;
     loggedUser = localStorage.getItem('loggedUser')!;
-    
+    idCurUser = +localStorage.getItem('idCurUser')!;
+
+
     if (isloggedin != "true" || !loggedUser)
       this.router.navigate(['/login']);
     else
-      this.authService.setLoggedUserFromLocalStorage(loggedUser);
+      this.authService.setLoggedUserFromLocalStorage(loggedUser, idCurUser);
   }
 
   onLogout() {
