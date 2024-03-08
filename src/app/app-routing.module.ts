@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AddChannelComponent } from './channels/add-channel/add-channel.component';
 import { AuthGuard } from './auth.guard';
+import { AddUserComponent } from './users/add-user/add-user.component';
 
 const routes: Routes = [
   { path: 'channels', component: SidebarComponent, canActivate: [AuthGuard] },
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'updateChannel', component: EditChannelComponent, canActivate: [AuthGuard] },
   { path: 'addPost', component: AddPostComponent, canActivate: [AuthGuard] },
   { path: 'editPost', component: EditPostComponent, canActivate: [AuthGuard] },
+  { path: 'addUser', component: AddUserComponent, canActivate: [AuthGuard] },
+
   { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] },
   { path: 'channels/:id', component: ListPostsComponent, canActivate: [AuthGuard] },
   //add

@@ -27,10 +27,23 @@
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse bg-light pb-1" aria-labelledby="flush-headingOne"
           data-bs-parent="#accordionFlushExample">
-          <ul *ngFor="let user of getUsersToChannel()">
-            <li>{{ user | uppercase }}</li>
+          <ul *ngFor="let user of getUsersToChannel()"  class="user-list mt-2 mb-2">
+
+            <li> <span><i class="fas fa-user  fs-5"></i></span> {{ user | uppercase }}</li>
           </ul>
         </div>
       </div>
     </div>
+
+    <!-- <div id="canaux" class="mb-2  fs-4">
+      <a>
+        <strong>
+          User
+          <i class="fas fa-plus bg-secondary rounded-pill p-1" [routerLink]="['/addUser']"></i>
+        </strong>
+
+      </a>
+    </div> -->
+
   </div>
+</div>

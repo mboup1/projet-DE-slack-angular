@@ -47,3 +47,8 @@ strong:hover i {
 .offcanvas {
   max-width: 250px; /* ajustez la valeur selon vos besoins */
 }
+
+
+.user-list {
+  list-style-type: none;
+}
