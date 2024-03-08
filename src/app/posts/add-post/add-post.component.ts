@@ -7,6 +7,7 @@ import axios from 'axios';
 import { API_BASE_URL } from '../../config/config';
 import { AuthService } from '../../auth.service';
 import { User } from '../../interfaces/user';
+import { UserService } from '../../users/service/user.service';
 
 @Component({
   selector: 'app-add-post',
@@ -20,6 +21,7 @@ export class AddPostComponent {
   channelName: string = '';
   idUser!: number;
   users: User[] = [];
+  // emailsList: User[] = [];
 
 
 
@@ -29,11 +31,19 @@ export class AddPostComponent {
     private route: ActivatedRoute,
     private channelsService: ChannelService,
     public authService: AuthService,
+    // private userService: UserService,
 
 
   ) { }
 
   ngOnInit(): void {
+
+    // this.userService.getAllEmails().subscribe((emails) => {
+    //   this.emailsList = emails;
+
+    //   console.log("this.emailsList : ", this.emailsList)
+    // });
+
     this.initPostForm();
     this.route.params.subscribe(params => {
       this.idChannel = +params['id'];

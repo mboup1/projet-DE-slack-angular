@@ -4,6 +4,9 @@
     <div class="bg-white shadow rounded p-4">
       <h1 class="display-6 text-dark text-center">Inscription</h1>
       <hr class="bg-dark mb-5" />
+      <div class="alert alert-danger" *ngIf="erreur==1">
+        <strong>L'email existe déjà..</strong>
+      </div>
       <form [formGroup]="userForm" (ngSubmit)="createUser(userForm.value)">
         <div class="form-group mb-3">
           <label for="nameInput">Nom</label>

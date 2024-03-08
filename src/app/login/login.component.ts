@@ -26,10 +26,10 @@ export class LoginComponent {
   }
 
   onLoggedin() {
-    // console.log(this.userForm.value);
+    console.log("this.userForm.value : ", this.userForm.value);
 
     let isValidUser: Boolean = this.authService.SignIn(this.userForm.value);
-    
+
     if (isValidUser)
       this.router.navigate(['/']);
     else

@@ -37,7 +37,7 @@ export class SidebarComponent {
 
     this.channelService.getChannelId().subscribe(channelId => {
 
-      console.log("channelId dans SidebarComponent : ", channelId);
+      // console.log("channelId dans SidebarComponent : ", channelId);
       this.channelIdToUsers = channelId
 
 

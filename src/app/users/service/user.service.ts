@@ -19,6 +19,10 @@ export class UserService {
     return this.http.get<User[]>(`${API_BASE_URL}/users`);
   }
 
+  getAllEmails(): Observable<User[]> {
+    return this.http.get<User[]>(`${API_BASE_URL}/users/emails`);
+  }
+
   addUser(user: User): Observable<User> {
     return this.http.post<User>(`${API_BASE_URL}`, user);
   }

@@ -23,10 +23,10 @@ export class ListUsersComponent implements OnInit, OnDestroy{
     this.userSubscription = this.userService.getAllUsers().subscribe({
       next: (users: User[]) => {
         this.userStoreService.users = users;
-      }      
+      }
     })
     this.userStoreService.users$.subscribe(users =>  this.usersList = users);
-    
+    console.log("this.usersList : ", this.usersList)
   }
   ngOnDestroy() {
     console.log('Destruction du composant userList')

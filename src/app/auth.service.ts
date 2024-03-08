@@ -55,7 +55,9 @@ export class AuthService {
     let validUser: Boolean = false;
 
     this.users.forEach((curUser) => {
+
       if (user.username == curUser.username && user.password == curUser.password) {
+        console.log("curUser : ",curUser)
         validUser = true;
         this.loggedUser = curUser.name;
         this.idCurUser = curUser.id;
