@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: 'addPost', component: AddPostComponent, canActivate: [AuthGuard] },
   { path: 'editPost', component: EditPostComponent, canActivate: [AuthGuard] },
   { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] },
-  // { path: '', component: SidebarComponent, canActivate: [AuthGuard] },
   { path: 'channels/:id', component: ListPostsComponent, canActivate: [AuthGuard] },
   //add
   { path: 'login', component: LoginComponent },

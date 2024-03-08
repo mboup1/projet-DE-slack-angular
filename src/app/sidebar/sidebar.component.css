@@ -2,9 +2,12 @@
   cursor: pointer;
 }
 
-#sidebarCss{
-  width: 170px;
+/* sidebar.component.css */
+
+#sidebarCss {
+  width: 10rem; /* Ajustez la valeur selon vos besoins */
 }
+
 
 
 #canaux{
@@ -37,4 +40,10 @@ strong:hover i {
     display: none;
   }
 
+}
+
+/* sidebar.component.css */
+
+.offcanvas {
+  max-width: 250px; /* ajustez la valeur selon vos besoins */
 }

@@ -52,8 +52,8 @@ export class AddPostComponent {
       // console.log("users add-post : ", this.users)
 
       // Afficher tous les noms d'utilisateur dans la console
-      const userIds = this.users.map(user => user.id);
-      console.log("ids users header2 usernames: ", userIds);
+      // const userIds = this.users.map(user => user.id);
+      // console.log("ids users header2 usernames: ", userIds);
     });
   }
 

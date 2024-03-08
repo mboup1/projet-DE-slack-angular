@@ -1,7 +1,7 @@
 <!-- sidebar.component.html -->
 <div class="test">
   <div id="canaux" class="mb-2  fs-4">
-    <a >
+    <a>
       <strong>
         Canaux
         <i class="fas fa-plus bg-secondary rounded-pill p-1" [routerLink]="['/addChannel']"></i>
@@ -15,7 +15,22 @@
       <a class="nav-link" data-bs-toggle="pill" [ngClass]="{'active': i === 0}">{{ channel.name | uppercase }}</a>
       <hr>
     </div>
+
+    <!-- Accordions -->
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item  ">
+        <h2 class="accordion-header  " id="flush-headingOne">
+          <button class="accordion-button collapsed bg-secondary rounded-1" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Utilisateurs
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse bg-light pb-1" aria-labelledby="flush-headingOne"
+          data-bs-parent="#accordionFlushExample">
+          <ul *ngFor="let user of getUsersToChannel()">
+            <li>{{ user | uppercase }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-

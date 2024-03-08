@@ -30,11 +30,13 @@ export class ListPostsComponent {
 
     this.route.params.subscribe(params => {
       const channelId = +params['id'];
+      // console.log("channelId : ", channelId);
+
 
       this.channelService.fetchDataChannelById(channelId).then(() => {
         this.channel = this.channelService.getChannel();
 
-        console.log("this.channel : ", this.channel)
+        // console.log("this.channel : ", this.channel)
 
         this.channel.posts?.sort((a: any, b: any) => {
           return new Date(a.postDateTime).getTime() - new Date(b.postDateTime).getTime();

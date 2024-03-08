@@ -6,6 +6,6 @@ export interface Channel {
   name: string;
   deletable: boolean;
   idUser?: number;
-  posts?: Post[];
+  posts: Post[];
   user?: User[];
 }

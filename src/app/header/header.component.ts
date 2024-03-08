@@ -53,7 +53,7 @@ export class HeaderComponent {
       this.users = this.authService.getUsers();
 
 
-      console.log("users header2 : ", this.users)
+      // console.log("users header2 : ", this.users)
 
       // Afficher tous les noms d'utilisateur dans la console
       // const usernames = this.users.map(user => user.username);
