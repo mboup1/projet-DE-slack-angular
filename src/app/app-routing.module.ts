@@ -13,15 +13,15 @@ import { AuthGuard } from './auth.guard';
 import { AddUserComponent } from './users/add-user/add-user.component';
 
 const routes: Routes = [
-  { path: 'channels', component: SidebarComponent, canActivate: [AuthGuard] },
-  { path: 'addChannel', component: AddChannelComponent, canActivate: [AuthGuard] },
-  { path: 'updateChannel', component: EditChannelComponent, canActivate: [AuthGuard] },
-  { path: 'addPost', component: AddPostComponent, canActivate: [AuthGuard] },
-  { path: 'editPost', component: EditPostComponent, canActivate: [AuthGuard] },
+  { path: 'channels', component: SidebarComponent },
+  { path: 'addChannel', component: AddChannelComponent },
+  { path: 'updateChannel', component: EditChannelComponent },
+  { path: 'addPost', component: AddPostComponent},
+  { path: 'editPost', component: EditPostComponent},
   { path: 'addUser', component: AddUserComponent },
 
-  { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] },
-  { path: 'channels/:id', component: ListPostsComponent, canActivate: [AuthGuard] },
+  { path: 'header', component: HeaderComponent },
+  { path: 'channels/:id', component: ListPostsComponent},
   //add
   { path: 'login', component: LoginComponent },
   { path: 'app-forbidden', component: ForbiddenComponent},
