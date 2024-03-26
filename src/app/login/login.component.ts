@@ -26,37 +26,18 @@ export class LoginComponent {
   }
 
   onLoggedin() {
-    // console.log("this.userForm.value : ", this.userForm.value);
+    console.log("this.userForm.value : ", this.userForm.value);
 
-    this.authService.login(this.userForm.value).subscribe({
+    let isValidUser: Boolean = this.authService.SignIn(this.userForm.value);
 
-      next: (data) => {
+    if (isValidUser)
+      this.router.navigate(['/']);
+    else
+      //   alert('Login ou mot de passe incorrecte!');
+      this.erreur = 1;
 
-        let jwToken = data.headers.get('Authorization')!;
-        this.authService.saveToken(jwToken);
-        this.router.navigate(['/']);
-      },
-      error: (err: any) => {
-        this.erreur = 1;
-      }
-    });
 
 
   }
-
-  // onLoggedin() {
-  //   console.log("this.userForm.value : ", this.userForm.value);
-
-  //   let isValidUser: Boolean = this.authService.SignIn(this.userForm.value);
-
-  //   if (isValidUser)
-  //     this.router.navigate(['/']);
-  //   else
-  //     //   alert('Login ou mot de passe incorrecte!');
-  //     this.erreur = 1;
-
-
-
-  // }
 
 }

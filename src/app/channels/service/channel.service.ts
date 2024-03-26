@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Channel } from '../../interfaces/channel';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject, catchError, map } from 'rxjs';
 import { API_BASE_URL } from '../../config/config';
 import axios from 'axios';
@@ -16,8 +16,6 @@ export class ChannelService {
   private channelIdSubject = new Subject<number>;
 
 
-
-
   setChannelId(channelId: number): void {
     this.channelIdSubject.next(channelId);
   }
@@ -27,16 +25,11 @@ export class ChannelService {
   }
 
 
-  constructor(private http: HttpClient,
-  ) { }
+  constructor(private http: HttpClient) { }
 
   // Récupérer la liste des canaux depuis l'API
   fetchDataByChannels(): Observable<void> {
-    let jwt = this.authService.getToken();
-    jwt = "Bearer " + jwt;
-    let httpHeaders = new HttpHeaders({ "Authorization": jwt })
-
-    return this.http.get(`${API_BASE_URL}/channels`, { headers: httpHeaders }).pipe(
+    return this.http.get(`${API_BASE_URL}/channels`).pipe(
       map((response: any) => {
         this.channels = response.map((channel: any) => ({
           id: channel.id,
@@ -47,8 +40,6 @@ export class ChannelService {
           user: channel.posts.user,
 
         }));
-        console.log("this.channels : ", this.channels)
-
       }),
       catchError((error) => {
         console.error('Error fetching JSON data:', error);

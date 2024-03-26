@@ -5,7 +5,6 @@ import { UserService } from './users/service/user.service';
 import { User } from './interfaces/user';
 import { Observable, catchError, map } from 'rxjs';
 import { API_BASE_URL } from './config/config';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -13,47 +12,13 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService {
 
   users: User[] = [];
-  public loggedUser!: string;
-  public isloggedIn: Boolean = false;
-  public idCurUser!: number;
-  public roles!: string[];
-  token!: string;
-  private helper = new JwtHelperService();
-  apiURL: string = 'http://localhost:8080';
+
 
   constructor(
     private router: Router,
     private http: HttpClient,
     public userService: UserService,
   ) { }
-
-
-
-  login(user: User) {
-    console.log("user in login : ", user);
-
-    return this.http.post<User>(this.apiURL + '/login', user, { observe: 'response' });
-  }
-
-  saveToken(jwt: string) {
-    localStorage.setItem('jwt', jwt);
-    this.token = jwt;
-    this.isloggedIn = true;
-    this.decodeJWT();
-  }
-
-  getToken(): string {
-    return this.token;
-  }
-
-  decodeJWT() {
-    if (this.token == undefined)
-      return;
-    const decodedToken = this.helper.decodeToken(this.token);
-    this.roles = decodedToken.roles;
-    this.loggedUser = decodedToken.sub;
-  }
-
 
 
   fetchDataUsers(): Observable<void> {
@@ -78,6 +43,11 @@ export class AuthService {
   getUsers(): User[] {
     return this.users;
   }
+
+  public loggedUser!: string;
+  public isloggedIn: Boolean = false;
+  public idCurUser!: number;
+  public roles!: string[];
 
 
 
